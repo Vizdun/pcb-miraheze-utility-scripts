@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "discord.js": "^13.0.1",
+    "download-file": "^0.1.5",
+    "fast-xml-parser": "^3.19.0",
+    "mwn": "^0.11.1",
+    "nodemw": "^0.14.0"
+  }
+}
