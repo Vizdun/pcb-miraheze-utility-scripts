@@ -1,20 +1,16 @@
-function replaceLinks(str) {
-	return (
-		str.split("[[w:c:polcompball")[0] +
-		"{{PCB|" +
-		str.split("[[w:c:polcompball")[1].replace("]]", "}}")
-	)
-}
+const fs = require("fs")
+
+const login = JSON.parse(fs.readFileSync("login.json").toString())
 
 const { mwn } = require("mwn")
 
 async function actualRoutine() {
 	const bot = await mwn.init({
-		apiUrl: "https://polcompballanarchy.miraheze.org/w/api.php",
+		apiUrl: "https://polcompball.miraheze.org/w/api.php",
 
 		// Can be skipped if the bot doesn't need to sign in
-		username: "Vizdun@VizBot",
-		password: "password",
+		username: login.username,
+		password: login.password,
 
 		// Set your user agent (required for WMF wikis, see https://meta.wikimedia.org/wiki/User-Agent_policy):
 		userAgent: "vizbot",
@@ -50,18 +46,14 @@ async function actualRoutine() {
 	bot.seriesBatchOperation(
 		pagesweknowthereare,
 		async (page, idx) => {
-			pageData = await bot.read(page)
-
-			if (pageData.revisions[0].content.search("[[w:c:polcompball")) {
-				await bot.save(
-					page,
-					replaceLinks(pageData.revisions[0].content),
-					"replaced links",
-				)
-				return Promise.resolve()
-			} else {
-				return Promise.resolve()
-			}
+			bot.edit(page, (rev) => {
+				let text = rev.content.replace("[[wp:", "[[w:")
+				return {
+					text: text,
+					summary: "replacing wp with w",
+					minor: true,
+				}
+			})
 		},
 		500,
 	)
