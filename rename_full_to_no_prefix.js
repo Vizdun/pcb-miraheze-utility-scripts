@@ -1,4 +1,7 @@
 const { mwn } = require("mwn")
+const fs = require("fs")
+
+const login = JSON.parse(fs.readFileSync("login.json").toString())
 
 startDate = Date.now()
 
@@ -7,8 +10,8 @@ async function actualRoutine() {
 		apiUrl: "https://polcompballanarchy.miraheze.org/w/api.php",
 
 		// Can be skipped if the bot doesn't need to sign in
-		username: "Vizdun@VizBot",
-		password: "password",
+		username: login.username,
+		password: login.password,
 
 		// Set your user agent (required for WMF wikis, see https://meta.wikimedia.org/wiki/User-Agent_policy):
 		userAgent: "vizbot",
