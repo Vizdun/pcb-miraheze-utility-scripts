@@ -1,3 +1,4 @@
+// unmaintained, do not use
 const { mwn } = require("mwn")
 
 async function actualRoutine() {

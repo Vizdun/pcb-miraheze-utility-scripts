@@ -1,3 +1,5 @@
+// unmaintained, do not use
+
 /*
 		don't even try
 */

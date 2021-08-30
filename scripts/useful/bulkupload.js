@@ -1,22 +1,7 @@
-const { mwn } = require("mwn")
-const fs = require("fs")
+import fs from "fs"
 
-async function actualRoutine() {
-	const bot = await mwn.init({
-		apiUrl: "https://polcompball.miraheze.org/w/api.php",
-
-		// Can be skipped if the bot doesn't need to sign in
-		username: "Vizdun@VizBot",
-		password: "password",
-
-		// Set your user agent (required for WMF wikis, see https://meta.wikimedia.org/wiki/User-Agent_policy):
-		userAgent: "vizbot",
-
-		// Set default parameters to be sent to be included in every API request
-		defaultParams: {
-			assert: "user", // ensure we're logged in
-		},
-	})
+import { setup } from "../startup.js"
+setup.then(async (bot) => {
 	files = fs.readdirSync("./images")
 
 	imagesWeKnowThereAre = []
@@ -50,6 +35,4 @@ async function actualRoutine() {
 			}
 		}
 	}
-}
-
-actualRoutine()
+})

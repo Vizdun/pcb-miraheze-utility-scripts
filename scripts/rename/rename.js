@@ -1,3 +1,5 @@
+// unmaintained, do not use
+
 const { mwn } = require("mwn")
 const fs = require("fs")
 
