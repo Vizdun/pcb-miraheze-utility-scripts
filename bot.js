@@ -1,3 +1,5 @@
+const login = JSON.parse(fs.readFileSync("login.json").toString())
+
 // import dependencies
 const { Client, Intents } = require("discord.js")
 const fs = require("fs")
@@ -217,4 +219,4 @@ client.on("messageCreate", (message) => {
 	}
 })
 
-client.login("token") // log in the bot
+client.login(login.token) // log in the bot
