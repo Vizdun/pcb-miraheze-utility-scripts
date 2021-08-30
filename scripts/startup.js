@@ -6,8 +6,7 @@ import { mwn } from "mwn"
 
 export var setup = mwn
 	.init({
-		apiUrl: "https://polcompball.miraheze.org/w/api.php",
-
+		apiUrl: login.url,
 		// Can be skipped if the bot doesn't need to sign in
 		username: login.username,
 		password: login.password,
