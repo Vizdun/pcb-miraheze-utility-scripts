@@ -6,49 +6,62 @@ quite possibly the worst javascript code ever written
 
 # Installation
 
-download git and npm through your package manager (apt example)
+Download git and npm:
 
-```
-sudo apt install git npm
-```
+- Debian and Derivatives:
+  ```
+  sudo apt install git npm
+  ```
+- Windows:
+  ```
+  winget install git npm
+  ```
+- Arch and Derivatives:
+  ```
+  sudo pacman -S git npm
+  ```
+- Fedora and Similar:
+  ```
+  sudo yum install git npm
+  ```
 
-install n
+Install Node.js version management:
 
 ```
 npm i -g n
 ```
 
-install latest node
+Install latest version of Node.js:
 
 ```
 n latest
 ```
 
-clone this repository
+Clone this repository:
 
 ```
 git clone https://github.com/Vizdun/pcb-miraheze-utility-scripts.git
 ```
 
-cd into it
+Cd into it:
 
 ```
 cd pcb-miraheze-utility-scripts
 ```
 
-install packages
+Install required packages:
 
 ```
 npm install
 ```
 
-copy and rename "login.example.json" to "login.json"
+Copy and rename "login.example.json" to "login.json":
 
 ```
 cp login.example.json login.json
 ```
 
-configure "login.json"
+Configure "login.json":
 
 ```
 vim login.json
