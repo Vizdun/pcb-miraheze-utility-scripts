@@ -2,9 +2,9 @@ import fs from "fs"
 
 import { setup } from "../startup.js"
 setup.then(async (bot) => {
-	files = fs.readdirSync("./images")
+	var files = fs.readdirSync("./images")
 
-	imagesWeKnowThereAre = []
+	var imagesWeKnowThereAre = []
 
 	for await (let json of bot.continuedQueryGen({
 		action: "query",
@@ -25,7 +25,7 @@ setup.then(async (bot) => {
 	})
 
 	for (const item of files) {
-		exists = await bot.read("File:" + item)
+		var exists = await bot.read("File:" + item)
 		if (exists.missing) {
 			console.log("uploading " + item)
 			try {
