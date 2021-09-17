@@ -1,5 +1,3 @@
-const login = JSON.parse(fs.readFileSync("login.json").toString())
-
 // import dependencies
 const { Client, Intents } = require("discord.js")
 const fs = require("fs")
